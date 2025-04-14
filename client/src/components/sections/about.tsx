@@ -21,8 +21,10 @@ export default function About() {
   return (
     <section id="about" className="py-20 bg-white dark:bg-slate-900/30 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-b from-primary/5 to-transparent rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-gradient-to-t from-primary/5 to-transparent rounded-full blur-3xl"></div>
+      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-b from-cyan-500/10 via-primary/5 to-transparent rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-gradient-to-t from-orange-500/10 via-primary/5 to-transparent rounded-full blur-3xl"></div>
+      <div className="absolute top-1/3 left-1/4 w-16 h-16 bg-gradient-to-r from-pink-500/20 to-primary/20 rounded-full blur-xl"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-24 h-24 bg-gradient-to-r from-primary/10 to-yellow-500/10 rounded-full blur-xl"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div 
@@ -32,12 +34,12 @@ export default function About() {
           }`}
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-4 relative inline-block">
-            <span className="bg-gradient-to-r from-primary to-purple-500 dark:from-primary dark:to-blue-400 text-transparent bg-clip-text">
+            <span className="bg-gradient-to-r from-cyan-500 via-primary to-orange-500 dark:from-cyan-400 dark:via-primary dark:to-orange-400 text-transparent bg-clip-text">
               About Me
             </span>
             <Sparkles className="w-6 h-6 text-yellow-400 absolute -top-4 -right-8" />
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-purple-500 mx-auto mb-8 rounded-full"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 via-primary to-orange-500 mx-auto mb-8 rounded-full"></div>
           <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 leading-relaxed">
             Passionate about building scalable and user-focused applications using the MERN stack. Quick learner, dedicated coder,
             and team player seeking to contribute to impactful real-world software solutions.
@@ -51,10 +53,10 @@ export default function About() {
               isLeftColVisible ? 'translate-x-0 opacity-100' : 'translate-x-[-20px] opacity-0' 
             }`}
           >
-            <Card className="border border-slate-200 dark:border-slate-700 shadow-md hover:shadow-lg transition-shadow duration-300">
+            <Card className="border-t-4 border-t-cyan-500 border border-slate-200 dark:border-slate-700 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
               <CardHeader className="pb-2">
                 <h3 className="text-xl font-semibold flex items-center">
-                  <User className="w-5 h-5 mr-2 text-primary" />
+                  <User className="w-5 h-5 mr-2 text-cyan-500" />
                   Personal Information
                 </h3>
               </CardHeader>
@@ -80,7 +82,7 @@ export default function About() {
               </CardContent>
             </Card>
 
-            <Card className="border border-slate-200 dark:border-slate-700 shadow-md hover:shadow-lg transition-shadow duration-300">
+            <Card className="border-t-4 border-t-primary border border-slate-200 dark:border-slate-700 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
               <CardHeader className="pb-2">
                 <h3 className="text-xl font-semibold flex items-center">
                   <BookOpen className="w-5 h-5 mr-2 text-primary" />
@@ -116,10 +118,10 @@ export default function About() {
               isRightColVisible ? 'translate-x-0 opacity-100' : 'translate-x-[20px] opacity-0' 
             }`}
           >
-            <Card className="border border-slate-200 dark:border-slate-700 shadow-md hover:shadow-lg transition-shadow duration-300">
+            <Card className="border-t-4 border-t-pink-500 border border-slate-200 dark:border-slate-700 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
               <CardHeader className="pb-2">
                 <h3 className="text-xl font-semibold flex items-center">
-                  <Award className="w-5 h-5 mr-2 text-primary" />
+                  <Award className="w-5 h-5 mr-2 text-pink-500" />
                   Achievements
                 </h3>
               </CardHeader>
@@ -131,10 +133,10 @@ export default function About() {
               </CardContent>
             </Card>
 
-            <Card className="border border-slate-200 dark:border-slate-700 shadow-md hover:shadow-lg transition-shadow duration-300">
+            <Card className="border-t-4 border-t-amber-500 border border-slate-200 dark:border-slate-700 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
               <CardHeader className="pb-2">
                 <h3 className="text-xl font-semibold flex items-center">
-                  <Award className="w-5 h-5 mr-2 text-primary" />
+                  <Award className="w-5 h-5 mr-2 text-amber-500" />
                   Certifications
                 </h3>
               </CardHeader>

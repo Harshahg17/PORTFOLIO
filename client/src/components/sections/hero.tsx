@@ -34,7 +34,7 @@ export default function Hero() {
               Full Stack Developer
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              Hi, I'm <span className="bg-gradient-to-r from-primary to-purple-500 dark:from-primary dark:to-blue-400 text-transparent bg-clip-text">Harsha H G</span>
+              Hi, I'm <span className="bg-gradient-to-r from-primary via-pink-500 to-amber-500 dark:from-primary dark:via-pink-400 dark:to-yellow-400 text-transparent bg-clip-text">Harsha H G</span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 max-w-xl leading-relaxed">
               Aspiring Full Stack Developer with strong fundamentals in web development, data structures, and problem-solving.
@@ -87,7 +87,7 @@ export default function Hero() {
             className={`relative hidden md:block transform transition-all duration-1000 ${isCodeVisible 
               ? 'translate-x-0 opacity-100' 
               : 'translate-x-8 opacity-0'}`}>
-            <div className="absolute -inset-1 bg-gradient-to-r from-primary via-purple-500 to-blue-600 rounded-xl blur-xl opacity-70 animate-pulse"></div>
+            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 via-primary to-amber-500 rounded-xl blur-xl opacity-70 animate-pulse"></div>
             <div className="relative bg-white/80 dark:bg-slate-800/90 backdrop-blur-sm rounded-xl p-8 shadow-2xl">
               <div className="flex items-center mb-4">
                 <div className="w-3 h-3 rounded-full bg-red-500 mr-2"></div>
