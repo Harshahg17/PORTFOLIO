@@ -3,12 +3,12 @@ import { Github, Linkedin, Mail, Phone, ChevronDown } from "lucide-react";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 
 export default function Hero() {
-  const { ref: heroRef, isVisible: isHeroVisible } = useIntersectionObserver({
+  const { ref: heroRef, isVisible: isHeroVisible } = useIntersectionObserver<HTMLDivElement>({
     threshold: 0.2,
     freezeOnceVisible: true
   });
   
-  const { ref: codeBlockRef, isVisible: isCodeVisible } = useIntersectionObserver({
+  const { ref: codeBlockRef, isVisible: isCodeVisible } = useIntersectionObserver<HTMLDivElement>({
     threshold: 0.2,
     freezeOnceVisible: true
   });
