@@ -3,9 +3,12 @@ import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 
 const app = express();
+
+// Middleware to parse incoming JSON and URL-encoded data
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// Custom middleware for logging API requests
 app.use((req, res, next) => {
   const start = Date.now();
   const path = req.path;
@@ -39,6 +42,7 @@ app.use((req, res, next) => {
 (async () => {
   const server = await registerRoutes(app);
 
+  // Global error handler
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
     const status = err.status || err.statusCode || 500;
     const message = err.message || "Internal Server Error";
@@ -47,24 +51,26 @@ app.use((req, res, next) => {
     throw err;
   });
 
-  // importantly only setup vite in development and after
-  // setting up all the other routes so the catch-all route
-  // doesn't interfere with the other routes
+  // Only setup Vite in development mode
   if (app.get("env") === "development") {
     await setupVite(app, server);
   } else {
     serveStatic(app);
   }
 
-  // ALWAYS serve the app on port 5000
-  // this serves both the API and the client.
-  // It is the only port that is not firewalled.
-  const port = 5000;
-  server.listen({
-    port,
-    host: "0.0.0.0",
-    reusePort: true,
-  }, () => {
-    log(`serving on port ${port}`);
-  });
+  // Dynamically use PORT or fallback to 5000
+  const port = process.env.PORT || 5000;  // Default to 5000 if no environment variable is set
+  
+  // Host configuration
+  const host = process.env.NODE_ENV === "development" ? "127.0.0.1" : "0.0.0.0"; // Use loopback in dev
+
+  // Start the server with error handling for the port binding
+  try {
+    server.listen(port, host, () => {
+      log(`Server is running on http://${host}:${port}`);
+    });
+  } catch (error) {
+    log(`Error starting server: ${error.message}`);
+    process.exit(1); // Exit if the server can't start
+  }
 })();
