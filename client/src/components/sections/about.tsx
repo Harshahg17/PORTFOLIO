@@ -33,12 +33,14 @@ export default function About() {
             isHeadingVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           }`}
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 relative inline-block text-black dark:text-white">
-            About Me
-            <div className="w-full h-1 bg-gradient-to-r from-[#5FBDB0] via-[#F8C765] to-[#F78A76] absolute -bottom-2 left-0"></div>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 relative inline-block">
+            <span className="bg-gradient-to-r from-cyan-500 via-primary to-orange-500 dark:from-cyan-400 dark:via-primary dark:to-orange-400 text-transparent bg-clip-text">
+              About Me
+            </span>
+            <Sparkles className="w-6 h-6 text-yellow-400 absolute -top-4 -right-8" />
           </h2>
-          <div className="h-8 mb-8"></div>
-          <p className="text-lg md:text-xl text-black dark:text-white leading-relaxed">
+          <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 via-primary to-orange-500 mx-auto mb-8 rounded-full"></div>
+          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 leading-relaxed">
             Passionate about building scalable and user-focused applications using the MERN stack. Quick learner, dedicated coder,
             and team player seeking to contribute to impactful real-world software solutions.
           </p>
@@ -51,56 +53,56 @@ export default function About() {
               isLeftColVisible ? 'translate-x-0 opacity-100' : 'translate-x-[-20px] opacity-0' 
             }`}
           >
-            <Card className="rounded-none border-l-4 border-l-[#5FBDB0] border-t-0 border border-black dark:border-white bg-white dark:bg-black shadow-md hover:shadow-lg transition-all duration-300">
+            <Card className="border-t-4 border-t-cyan-500 border border-slate-200 dark:border-slate-700 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
               <CardHeader className="pb-2">
-                <h3 className="text-xl font-semibold flex items-center text-black dark:text-white">
-                  <User className="w-5 h-5 mr-2 text-[#5FBDB0]" />
+                <h3 className="text-xl font-semibold flex items-center">
+                  <User className="w-5 h-5 mr-2 text-cyan-500" />
                   Personal Information
                 </h3>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3">
                   <li className="flex">
-                    <span className="font-medium w-28 text-black dark:text-white">Name:</span>
-                    <span className="text-black dark:text-white">Harsha H G</span>
+                    <span className="font-medium w-28 text-slate-700 dark:text-slate-300">Name:</span>
+                    <span className="text-slate-800 dark:text-slate-200">Harsha H G</span>
                   </li>
                   <li className="flex">
-                    <span className="font-medium w-28 text-black dark:text-white">Email:</span>
-                    <span className="text-black dark:text-white">harshahg829656@gmail.com</span>
+                    <span className="font-medium w-28 text-slate-700 dark:text-slate-300">Email:</span>
+                    <span className="text-slate-800 dark:text-slate-200">harshahg829656@gmail.com</span>
                   </li>
                   <li className="flex">
-                    <span className="font-medium w-28 text-black dark:text-white">Phone:</span>
-                    <span className="text-black dark:text-white">+91 9980207985</span>
+                    <span className="font-medium w-28 text-slate-700 dark:text-slate-300">Phone:</span>
+                    <span className="text-slate-800 dark:text-slate-200">+91 9980207985</span>
                   </li>
                   <li className="flex">
-                    <span className="font-medium w-28 text-black dark:text-white">Location:</span>
-                    <span className="text-black dark:text-white">Bengaluru, India</span>
+                    <span className="font-medium w-28 text-slate-700 dark:text-slate-300">Location:</span>
+                    <span className="text-slate-800 dark:text-slate-200">Bengaluru, India</span>
                   </li>
                 </ul>
               </CardContent>
             </Card>
 
-            <Card className="rounded-none border-l-4 border-l-[#F8C765] border-t-0 border border-black dark:border-white bg-white dark:bg-black shadow-md hover:shadow-lg transition-all duration-300">
+            <Card className="border-t-4 border-t-primary border border-slate-200 dark:border-slate-700 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
               <CardHeader className="pb-2">
-                <h3 className="text-xl font-semibold flex items-center text-black dark:text-white">
-                  <BookOpen className="w-5 h-5 mr-2 text-[#F8C765]" />
+                <h3 className="text-xl font-semibold flex items-center">
+                  <BookOpen className="w-5 h-5 mr-2 text-primary" />
                   Education
                 </h3>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-medium text-black dark:text-white">Bangalore Institute of Technology, Bengaluru</h4>
-                    <p className="text-black dark:text-white">Bachelor of Engineering in Computer Science</p>
-                    <div className="flex justify-between text-sm text-black dark:text-white mt-1">
+                    <h4 className="font-medium text-slate-900 dark:text-white">Bangalore Institute of Technology, Bengaluru</h4>
+                    <p className="text-slate-700 dark:text-slate-300">Bachelor of Engineering in Computer Science</p>
+                    <div className="flex justify-between text-sm text-slate-500 dark:text-slate-400 mt-1">
                       <span>2021 - 2025</span>
                       <span>CGPA: 8.78/10</span>
                     </div>
                   </div>
                   <div>
-                    <h4 className="font-medium text-black dark:text-white">STG PU College, Mandya</h4>
-                    <p className="text-black dark:text-white">Pre-University Course (PUC)</p>
-                    <div className="flex justify-between text-sm text-black dark:text-white mt-1">
+                    <h4 className="font-medium text-slate-900 dark:text-white">STG PU College, Mandya</h4>
+                    <p className="text-slate-700 dark:text-slate-300">Pre-University Course (PUC)</p>
+                    <div className="flex justify-between text-sm text-slate-500 dark:text-slate-400 mt-1">
                       <span>2020 - 2021</span>
                       <span>Percentage: 99.6%</span>
                     </div>
@@ -116,38 +118,38 @@ export default function About() {
               isRightColVisible ? 'translate-x-0 opacity-100' : 'translate-x-[20px] opacity-0' 
             }`}
           >
-            <Card className="rounded-none border-l-4 border-l-[#F78A76] border-t-0 border border-black dark:border-white bg-white dark:bg-black shadow-md hover:shadow-lg transition-all duration-300">
+            <Card className="border-t-4 border-t-pink-500 border border-slate-200 dark:border-slate-700 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
               <CardHeader className="pb-2">
-                <h3 className="text-xl font-semibold flex items-center text-black dark:text-white">
-                  <Award className="w-5 h-5 mr-2 text-[#F78A76]" />
+                <h3 className="text-xl font-semibold flex items-center">
+                  <Award className="w-5 h-5 mr-2 text-pink-500" />
                   Achievements
                 </h3>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-3 list-disc list-inside text-black dark:text-white">
+                <ul className="space-y-3 list-disc list-inside text-slate-700 dark:text-slate-300">
                   <li>Solved 300+ Data Structures and Algorithms problems on LeetCode with a max contest rating of 1528.</li>
                   <li>Participated in internal college-level hackathons, contributing to end-to-end full-stack web applications under time constraints.</li>
                 </ul>
               </CardContent>
             </Card>
 
-            <Card className="rounded-none border-l-4 border-l-black dark:border-l-white border-t-0 border border-black dark:border-white bg-white dark:bg-black shadow-md hover:shadow-lg transition-all duration-300">
+            <Card className="border-t-4 border-t-amber-500 border border-slate-200 dark:border-slate-700 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
               <CardHeader className="pb-2">
-                <h3 className="text-xl font-semibold flex items-center text-black dark:text-white">
-                  <Award className="w-5 h-5 mr-2 text-black dark:text-white" />
+                <h3 className="text-xl font-semibold flex items-center">
+                  <Award className="w-5 h-5 mr-2 text-amber-500" />
                   Certifications
                 </h3>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
                   <div>
-                    <h4 className="font-medium text-black dark:text-white">The Complete 2024 Web Development Bootcamp</h4>
-                    <p className="text-black dark:text-white">by Dr. Angela Yu - Udemy</p>
-                    <a href="#" className="text-[#5FBDB0] dark:text-[#5FBDB0] text-sm hover:underline">View Certificate</a>
+                    <h4 className="font-medium text-slate-900 dark:text-white">The Complete 2024 Web Development Bootcamp</h4>
+                    <p className="text-slate-700 dark:text-slate-300">by Dr. Angela Yu - Udemy</p>
+                    <a href="#" className="text-primary dark:text-primary text-sm hover:underline">View Certificate</a>
                   </div>
                   <div>
-                    <h4 className="font-medium text-black dark:text-white">LeetCode Max Contest Rating: 1528</h4>
-                    <a href="#" className="text-[#F78A76] dark:text-[#F78A76] text-sm hover:underline">View Profile</a>
+                    <h4 className="font-medium text-slate-900 dark:text-white">LeetCode Max Contest Rating: 1528</h4>
+                    <a href="#" className="text-primary dark:text-primary text-sm hover:underline">View Profile</a>
                   </div>
                 </div>
               </CardContent>
