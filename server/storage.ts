@@ -1,9 +1,7 @@
 import { 
-  users, type User, type InsertUser,
-  contactSubmissions, type ContactSubmission, type InsertContactSubmission 
+  type User, type InsertUser,
+  type ContactSubmission, type InsertContactSubmission 
 } from "@shared/schema";
-import { db } from "./db";
-import { eq } from "drizzle-orm";
 
 // Interface remains the same for consistency
 export interface IStorage {
@@ -16,38 +14,44 @@ export interface IStorage {
   getContactSubmissions(): Promise<ContactSubmission[]>;
 }
 
-// Replaced MemStorage with DatabaseStorage
-export class DatabaseStorage implements IStorage {
+// In-memory storage implementation
+export class MemStorage implements IStorage {
+  private users: User[] = [];
+  private contactSubmissions: ContactSubmission[] = [];
+  private nextUserId = 1;
+  private nextSubmissionId = 1;
+
   async getUser(id: number): Promise<User | undefined> {
-    const [user] = await db.select().from(users).where(eq(users.id, id));
-    return user || undefined;
+    return this.users.find(user => user.id === id);
   }
 
   async getUserByUsername(username: string): Promise<User | undefined> {
-    const [user] = await db.select().from(users).where(eq(users.username, username));
-    return user || undefined;
+    return this.users.find(user => user.username === username);
   }
 
   async createUser(insertUser: InsertUser): Promise<User> {
-    const [user] = await db
-      .insert(users)
-      .values(insertUser)
-      .returning();
+    const user = {
+      ...insertUser,
+      id: this.nextUserId++,
+      createdAt: new Date().toISOString(),
+    } as User;
+    this.users.push(user);
     return user;
   }
 
   async createContactSubmission(insertSubmission: InsertContactSubmission): Promise<ContactSubmission> {
-    const createdAt = new Date().toISOString();
-    const [submission] = await db
-      .insert(contactSubmissions)
-      .values({ ...insertSubmission, createdAt })
-      .returning();
+    const submission = {
+      ...insertSubmission,
+      id: this.nextSubmissionId++,
+      createdAt: new Date().toISOString(),
+    } as ContactSubmission;
+    this.contactSubmissions.push(submission);
     return submission;
   }
 
   async getContactSubmissions(): Promise<ContactSubmission[]> {
-    return await db.select().from(contactSubmissions);
+    return this.contactSubmissions;
   }
 }
 
-export const storage = new DatabaseStorage();
+export const storage = new MemStorage();
