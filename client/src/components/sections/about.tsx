@@ -33,13 +33,11 @@ export default function About() {
             isHeadingVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           }`}
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 relative inline-block">
-            <span className="bg-gradient-to-r from-cyan-500 via-primary to-orange-500 dark:from-cyan-400 dark:via-primary dark:to-orange-400 text-transparent bg-clip-text">
-              About Me
-            </span>
-            <Sparkles className="w-6 h-6 text-yellow-400 absolute -top-4 -right-8" />
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 relative inline-block text-black dark:text-white">
+            About Me
+            <div className="w-full h-1 bg-gradient-to-r from-[#5FBDB0] via-[#F8C765] to-[#F78A76] absolute -bottom-2 left-0"></div>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 via-primary to-orange-500 mx-auto mb-8 rounded-full"></div>
+          <div className="h-8 mb-8"></div>
           <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 leading-relaxed">
             Passionate about building scalable and user-focused applications using the MERN stack. Quick learner, dedicated coder,
             and team player seeking to contribute to impactful real-world software solutions.
@@ -53,10 +51,10 @@ export default function About() {
               isLeftColVisible ? 'translate-x-0 opacity-100' : 'translate-x-[-20px] opacity-0' 
             }`}
           >
-            <Card className="border-t-4 border-t-cyan-500 border border-slate-200 dark:border-slate-700 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+            <Card className="rounded-none border-l-4 border-l-[#5FBDB0] border-t-0 border border-black dark:border-white bg-white dark:bg-black shadow-md hover:shadow-lg transition-all duration-300">
               <CardHeader className="pb-2">
-                <h3 className="text-xl font-semibold flex items-center">
-                  <User className="w-5 h-5 mr-2 text-cyan-500" />
+                <h3 className="text-xl font-semibold flex items-center text-black dark:text-white">
+                  <User className="w-5 h-5 mr-2 text-[#5FBDB0]" />
                   Personal Information
                 </h3>
               </CardHeader>
@@ -82,10 +80,10 @@ export default function About() {
               </CardContent>
             </Card>
 
-            <Card className="border-t-4 border-t-primary border border-slate-200 dark:border-slate-700 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+            <Card className="rounded-none border-l-4 border-l-[#F8C765] border-t-0 border border-black dark:border-white bg-white dark:bg-black shadow-md hover:shadow-lg transition-all duration-300">
               <CardHeader className="pb-2">
-                <h3 className="text-xl font-semibold flex items-center">
-                  <BookOpen className="w-5 h-5 mr-2 text-primary" />
+                <h3 className="text-xl font-semibold flex items-center text-black dark:text-white">
+                  <BookOpen className="w-5 h-5 mr-2 text-[#F8C765]" />
                   Education
                 </h3>
               </CardHeader>
