@@ -1,4 +1,5 @@
 import express, { type Request, Response, NextFunction } from "express";
+import http from "http";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 
@@ -40,37 +41,28 @@ app.use((req, res, next) => {
 });
 
 (async () => {
-  const server = await registerRoutes(app);
+  await registerRoutes(app);
+  const server = http.createServer(app);
 
   // Global error handler
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
     const status = err.status || err.statusCode || 500;
     const message = err.message || "Internal Server Error";
-
     res.status(status).json({ message });
     throw err;
   });
 
-  // Only setup Vite in development mode
+  // Environment-specific setup
   if (app.get("env") === "development") {
     await setupVite(app, server);
   } else {
-    serveStatic(app);
+    serveStatic(app); // Serve static files in production
   }
 
-  // Dynamically use PORT or fallback to 5000
-  const port = process.env.PORT || 5000;  // Default to 5000 if no environment variable is set
-  
-  // Host configuration
-  const host = process.env.NODE_ENV === "development" ? "127.0.0.1" : "0.0.0.0"; // Use loopback in dev
+  const port = process.env.PORT || 5000;
+  const host = process.env.NODE_ENV === "development" ? "127.0.0.1" : "0.0.0.0";
 
-  // Start the server with error handling for the port binding
-  try {
-    server.listen(port, host, () => {
-      log(`Server is running on http://${host}:${port}`);
-    });
-  } catch (error) {
-    log(`Error starting server: ${error.message}`);
-    process.exit(1); // Exit if the server can't start
-  }
+  server.listen(port, host, () => {
+    log(`🚀 Server is running at http://${host}:${port}`);
+  });
 })();
