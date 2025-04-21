@@ -63,7 +63,7 @@ export default function Header() {
           <Sun className="w-5 h-5 text-gray-600" />
           
           <Button asChild size="sm" className="bg-blue-500 hover:bg-blue-600 text-white rounded ml-2">
-            <a href="/Harsha_HG_Resume.pdf" download>
+            <a href="/" download>
               Download CV
             </a>
           </Button>
